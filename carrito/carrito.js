@@ -1,2 +1,2 @@
-let carrito =[]:
+let carrito =[];
 function agregarAlCarrito(item){}
