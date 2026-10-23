@@ -3,33 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TecnoMarket</title>
+  <title>TecnoMarket — Tecnología al mejor precio</title>
   <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/efectos.css">
+  <link rel="stylesheet" href="css/futurista.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1>TecnoMarket</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="#productos">Productos</a>
+      <a href="index.html" class="activo">Inicio</a>
+      <a href="pages/producto.html">Productos</a>
       <a href="carrito.html">Carrito</a>
       <a href="pages/contacto.html">Contacto</a>
     </nav>
   </header>
 
-  <section class="banner">
-    <h2>Tecnología para estudiar, trabajar y jugar</h2>
-    <p>Laptops, celulares y accesorios al mejor precio.</p>
-    <a class="boton" href="#productos">Ver productos</a>
-  </section>
+  <main>
+    <!-- Presentación -->
+    <section class="hero">
+      <span class="etiqueta">Sistemas 2026 · SENATI</span>
+      <h2>Tecnología para estudiar, trabajar y jugar</h2>
+      <p>Laptops, celulares y accesorios al mejor precio del Perú.</p>
+      <div class="hero-botones">
+        <a class="boton" href="pages/producto.html">Ver productos</a>
+        <a class="boton-fantasma" href="carrito.html">Ir al carrito 🛒</a>
+      </div>
+    </section>
 
-  <section id="productos">
-    <h2>Productos</h2>
-    <div id="lista" class="lista"></div>
-  </section>
+    <!-- Accesos rápidos a las 3 secciones -->
+    <section class="accesos">
+      <a class="acceso" href="pages/producto.html">
+        <span class="acceso-icono">🛍️</span>
+        <span class="acceso-titulo">Productos</span>
+        <span class="acceso-texto">Explora el catálogo</span>
+      </a>
+      <a class="acceso" href="carrito.html">
+        <span class="acceso-icono">🛒</span>
+        <span class="acceso-titulo">Carrito</span>
+        <span class="acceso-texto">Revisa tu pedido</span>
+      </a>
+      <a class="acceso" href="pages/contacto.html">
+        <span class="acceso-icono">✉️</span>
+        <span class="acceso-titulo">Contacto</span>
+        <span class="acceso-texto">Escríbenos</span>
+      </a>
+    </section>
+
+    <!-- Productos destacados (llevan al detalle con ?id=) -->
+    <section class="destacados">
+      <h3>Los más buscados</h3>
+      <div class="destacados-lista">
+        <a href="pages/producto.html?id=1">💻 Laptop Lenovo IdeaPad</a>
+        <a href="pages/producto.html?id=3">📱 Samsung Galaxy A15</a>
+        <a href="pages/producto.html?id=7">🎧 Audífonos gamer</a>
+        <a href="pages/producto.html?id=5">⌨️ Teclado mecánico</a>
+      </div>
+    </section>
+  </main>
 
   <footer>TecnoMarket - SENATI 2026</footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/efectos.js" defer></script>
 </body>
 </html>

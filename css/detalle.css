@@ -1,40 +1,354 @@
-/* Estilos de las páginas de detalle y contacto (Integrante 3).
-   Incluye el encabezado y pie para que funcione solo; al unir todo se puede compartir con estilos.css */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #f3f6fa; color: #14213d; }
+/* ============================================================
+   TecnoMarket — Páginas de Detalle y Contacto
+   Diseño minimalista alineado con carrito.html + glassmorphism
+   (Integrante 3). El JS usa: .detalle .boton .caja .dos-columnas
+   .otros .imagen .categoria .precio .disponible .agotado .oferta
+   ============================================================ */
 
-header { background: #0b2545; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
-header nav a { color: white; text-decoration: none; margin-left: 20px; }
-header nav a:hover, header nav a.activo { color: #ee6c4d; }
-footer { background: #0b2545; color: white; text-align: center; padding: 15px; margin-top: 40px; }
+:root {
+    --color-fondo:        #f7f8fa;
+    --color-superficie:   #ffffff;
+    --color-borde:        #ececec;
+    --color-texto:        #111111;
+    --color-texto-suave:  #6b7280;
+    --color-acento:       #ef4444; /* rojo, combina con el efecto de cursor */
+    --radio:              10px;
+    --vidrio:             rgba(255, 255, 255, 0.72); /* superficie translúcida */
+    --vidrio-borde:       rgba(255, 255, 255, 0.65);
+}
 
-main { max-width: 1000px; margin: 0 auto; padding: 30px 5%; }
-main h2 { margin: 30px 0 15px; }
-.volver { color: #0b2545; }
-.boton { background: #ee6c4d; color: white; border: 0; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
 
-/* Detalle de producto */
-.detalle { display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; background: white; border: 1px solid #d5dfeb; border-radius: 8px; padding: 25px; margin-top: 20px; }
-.detalle .imagen { background: #f3f6fa; border-radius: 8px; display: grid; place-items: center; font-size: 6rem; min-height: 220px; }
-.detalle .categoria { color: #4a5b78; }
-.detalle .precio { font-size: 1.8rem; font-weight: bold; color: #0b2545; margin: 10px 0; }
-.detalle ul { margin: 10px 0 15px 20px; }
-.disponible { color: #1a7f37; font-weight: bold; }
-.agotado { color: #c0392b; font-weight: bold; }
-.oferta { background: #ee6c4d; color: white; padding: 2px 10px; border-radius: 10px; font-size: .85rem; }
-.otros { display: flex; gap: 10px; flex-wrap: wrap; }
-.otros a { background: white; border: 1px solid #d5dfeb; border-radius: 20px; padding: 8px 14px; text-decoration: none; color: #0b2545; }
+body {
+    min-height: 100vh;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}
 
-/* Contacto */
-.dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.caja { background: white; border: 1px solid #d5dfeb; border-radius: 8px; padding: 20px; }
-.caja h3 { margin-bottom: 10px; }
-.caja p { margin-bottom: 6px; }
-form label { display: block; margin-bottom: 10px; }
-form input, form textarea { display: block; width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #d5dfeb; border-radius: 5px; font-family: inherit; }
-.respuesta { margin-top: 10px; color: #1a7f37; font-weight: bold; }
-details { background: white; border: 1px solid #d5dfeb; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
-summary { cursor: pointer; font-weight: bold; }
-details p { margin-top: 8px; }
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
-@media (max-width: 700px) { .detalle, .dos-columnas { grid-template-columns: 1fr; } }
+a {
+    color: inherit;
+}
+
+/* --- ENCABEZADO (vidrio translúcido con blur) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.9rem 2.5rem;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+header h1 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    margin-left: 1.25rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: var(--color-texto);
+    background: rgba(17, 17, 17, 0.05);
+}
+
+/* --- CONTENIDO --- */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+main > h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 2.25rem 0 1rem;
+}
+
+main > h2:first-child {
+    margin-top: 0;
+}
+
+.volver {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-texto-suave);
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    transition: color 0.2s;
+}
+
+.volver:hover {
+    color: var(--color-texto);
+}
+
+/* Base común: tarjetas de vidrio */
+.detalle,
+.caja {
+    background: var(--vidrio);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--vidrio-borde);
+    border-radius: var(--radio);
+}
+
+/* --- DETALLE DEL PRODUCTO --- */
+.detalle {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2rem;
+    padding: 1.75rem;
+    margin-top: 0.5rem;
+}
+
+.detalle .imagen {
+    background: var(--color-fondo);
+    border-radius: var(--radio);
+    display: grid;
+    place-items: center;
+    font-size: 5.5rem;
+    min-height: 240px;
+    align-self: start;
+}
+
+.detalle .categoria {
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+}
+
+.detalle h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.detalle .precio {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.detalle h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+}
+
+.detalle ul {
+    margin: 0 0 1rem 1.1rem;
+    color: var(--color-texto-suave);
+    font-size: 0.88rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.disponible {
+    color: #16a34a;
+    font-weight: 500;
+    font-size: 0.88rem;
+}
+
+.agotado {
+    color: var(--color-acento);
+    font-weight: 500;
+    font-size: 0.88rem;
+}
+
+.oferta {
+    background: var(--color-acento);
+    color: #fff;
+    padding: 0.1rem 0.55rem;
+    border-radius: 99px;
+    font-size: 0.72rem;
+    vertical-align: middle;
+}
+
+/* Botón principal (comparte estilo con el carrito) */
+.boton {
+    background: var(--color-texto);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.boton:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.boton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Otros productos (chips) */
+.otros {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.otros a {
+    background: var(--vidrio);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--vidrio-borde);
+    border-radius: 99px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.otros a:hover {
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.08);
+}
+
+/* --- CONTACTO --- */
+.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.caja {
+    padding: 1.5rem;
+}
+
+.caja h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+}
+
+.caja p {
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 0.5rem;
+}
+
+.caja p:last-child {
+    margin-bottom: 0;
+}
+
+form label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.85rem;
+}
+
+form input,
+form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    margin-top: 0.3rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background: var(--color-fondo);
+    font-family: inherit;
+    font-size: 0.87rem;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--color-texto);
+    background: var(--color-superficie);
+}
+
+.respuesta {
+    margin-top: 0.75rem;
+    color: #16a34a;
+    font-size: 0.87rem;
+    font-weight: 500;
+}
+
+/* Preguntas frecuentes */
+details {
+    background: var(--vidrio);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--vidrio-borde);
+    border-radius: var(--radio);
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.92rem;
+}
+
+details p {
+    margin-top: 0.6rem;
+    color: var(--color-texto-suave);
+    font-size: 0.88rem;
+}
+
+/* --- PIE DE PÁGINA --- */
+footer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--color-texto-suave);
+    font-size: 0.78rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 760px) {
+    .detalle,
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    header nav a {
+        margin-left: 0.25rem;
+    }
+}

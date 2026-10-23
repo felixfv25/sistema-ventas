@@ -1,0 +1,124 @@
+/* ============================================================
+   TEMA FUTURISTA (fondo oscuro + neón rojo)
+   Este archivo se carga DESPUÉS de los otros estilos,
+   así que sobreescribe lo que necesita.
+   Usan este tema: index, producto, carrito y contacto
+   ============================================================ */
+
+/* --- 1. Cambiamos los colores del sitio (variables) --- */
+/* Todos los estilos usan estas variables, así que al cambiarlas aquí,
+   las 4 páginas se ven oscuras automáticamente */
+:root {
+    --color-fondo:       #181a21;   /* fondo gris oscuro (grafito) */
+    --color-borde:       rgba(239, 68, 68, 0.25);   /* borde rojo suave */
+    --color-texto:       #f8f9ff;   /* texto casi blanco */
+    --color-texto-suave: #a8aec2;   /* texto gris claro */
+    --color-hover:       rgba(239, 68, 68, 0.12);   /* fondos al pasar el mouse */
+}
+
+/* --- 2. Rejilla de fondo (líneas rojas sutiles) --- */
+html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image:
+        linear-gradient(rgba(239, 68, 68, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 68, 68, 0.09) 1px, transparent 1px);
+    background-size: 46px 46px;
+}
+
+/* --- 3. Todas las tarjetas y superficies se ven de vidrio oscuro --- */
+/* (barra lateral, header, tarjetas, cajas, chips) */
+.sidebar,
+header,
+.product-card,
+.cart-checkout-sidebar,
+.detalle,
+.caja,
+details,
+.etiqueta,
+.acceso,
+.otros a,
+.destacados-lista a,
+.user-info span,
+.boton-fantasma {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-borde);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Las tarjetas brillan al pasar el mouse */
+.acceso:hover,
+.product-card:hover {
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15);
+}
+
+/* --- 4. Títulos con brillo rojo (efecto neón) --- */
+header h1,
+.logo-text {
+    color: #ffffff;
+    text-shadow: 0 0 14px rgba(239, 68, 68, 0.65);
+}
+
+/* --- 5. Los precios van en rojo --- */
+.product-card .price,
+.detalle .precio,
+.cart-item-price,
+.cart-totals .total span:last-child {
+    color: #ff6b6b;
+}
+
+/* --- 6. Botones neón --- */
+.btn-add,
+.btn-checkout,
+.boton {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.55);
+    color: #ff6b6b;
+}
+
+.btn-add:hover,
+.btn-checkout:hover,
+.boton:hover {
+    background: rgba(239, 68, 68, 0.85);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.55);
+}
+
+/* Botones + y - del carrito */
+.btn-qty {
+    background: transparent;
+    border-color: var(--color-borde);
+    color: var(--color-texto);
+}
+
+.btn-qty:hover {
+    border-color: rgba(239, 68, 68, 0.55);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}
+
+/* --- 7. El emoji del producto brilla --- */
+.product-card:hover .product-img-placeholder {
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.6));
+}
+
+/* --- 8. Formularios oscuros --- */
+form input,
+form textarea,
+.form-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-borde);
+    color: #f8f9ff;
+}
+
+form input:focus,
+form textarea:focus,
+.form-group input:focus {
+    border-color: rgba(239, 68, 68, 0.55);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}

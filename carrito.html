@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaptopStore - Venta de Laptops Minimalista</title>
-    <link rel="stylesheet" href="style.css">
+    <title>LaptopStore — Carrito</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/efectos.css">
+  <link rel="stylesheet" href="css/futurista.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,14 +15,14 @@
         <!-- BARRA LATERAL -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2 class="logo-text">💻 LaptopStore</h2>
-                <button id="toggle-sidebar" class="btn-toggle" title="Contraer menú">☰</button>
+                <h2 class="logo-text">LaptopStore</h2>
+                <button id="toggle-sidebar" class="btn-toggle" title="Contraer menú" aria-label="Contraer menú">☰</button>
             </div>
             <nav class="nav-links">
-                <a href="#" class="active"><span class="icon">🏠</span> <span class="text">Catálogo</span></a>
-                <a href="#"><span class="icon">⚡</span> <span class="text">Gaming</span></a>
-                <a href="#"><span class="icon">💼</span> <span class="text">Ultrabooks</span></a>
-                <a href="#"><span class="icon">📦</span> <span class="text">Mis Pedidos</span></a>
+                <a href="index.html"><span class="icon">🏠</span> <span class="text">Inicio</span></a>
+                <a href="pages/producto.html"><span class="icon">💻</span> <span class="text">Productos</span></a>
+                <a href="#" class="active"><span class="icon">🛒</span> <span class="text">Carrito</span></a>
+                <a href="pages/contacto.html"><span class="icon">✉️</span> <span class="text">Contacto</span></a>
             </nav>
             <div class="sidebar-footer">
                 <p class="text">Sistemas 2026</p>
@@ -35,39 +37,69 @@
             </header>
 
             <div class="store-grid">
-                <section class="products-section">
+                <!-- Catálogo -->
+                <section class="products-section" aria-label="Catálogo de laptops">
                     <div class="product-grid" id="product-list">
                         <div class="product-card" data-id="1" data-name="MacBook Air M2" data-price="1099.00">
                             <div class="product-img-placeholder">💻</div>
                             <h3>MacBook Air M2</h3>
-                            <p class="specs">8GB RAM • 256GB SSD</p>
-                            <p class="price">$1,099.00</p>
-                            <button class="btn-add">Agregar al carrito</button>
+                            <p class="specs">8 GB RAM • 256 GB SSD</p>
+                            <p class="price">S/ 1,099.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
                         </div>
                         <div class="product-card" data-id="2" data-name="ASUS ROG Zephyrus" data-price="1450.00">
                             <div class="product-img-placeholder">⚡</div>
                             <h3>ASUS ROG Zephyrus</h3>
-                            <p class="specs">RTX 4060 • 16GB RAM</p>
-                            <p class="price">$1,450.00</p>
-                            <button class="btn-add">Agregar al carrito</button>
+                            <p class="specs">RTX 4060 • 16 GB RAM</p>
+                            <p class="price">S/ 1,450.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
                         </div>
                         <div class="product-card" data-id="3" data-name="Lenovo ThinkPad X1" data-price="1200.00">
                             <div class="product-img-placeholder">💼</div>
                             <h3>Lenovo ThinkPad X1</h3>
-                            <p class="specs">Intel i7 • 16GB RAM</p>
-                            <p class="price">$1,200.00</p>
-                            <button class="btn-add">Agregar al carrito</button>
+                            <p class="specs">Intel i7 • 16 GB RAM</p>
+                            <p class="price">S/ 1,200.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
                         </div>
                         <div class="product-card" data-id="4" data-name="HP Pavilion 15" data-price="650.00">
                             <div class="product-img-placeholder">🖥️</div>
                             <h3>HP Pavilion 15</h3>
-                            <p class="specs">AMD Ryzen 5 • 8GB RAM</p>
-                            <p class="price">$650.00</p>
-                            <button class="btn-add">Agregar al carrito</button>
+                            <p class="specs">Ryzen 5 • 8 GB RAM</p>
+                            <p class="price">S/ 650.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
+                        </div>
+                        <div class="product-card" data-id="5" data-name="Dell XPS 13" data-price="1299.00">
+                            <div class="product-img-placeholder">✨</div>
+                            <h3>Dell XPS 13</h3>
+                            <p class="specs">Intel i7 • 16 GB RAM</p>
+                            <p class="price">S/ 1,299.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
+                        </div>
+                        <div class="product-card" data-id="6" data-name="MacBook Pro 14" data-price="1999.00">
+                            <div class="product-img-placeholder">💻</div>
+                            <h3>MacBook Pro 14</h3>
+                            <p class="specs">Chip M3 • 18 GB RAM</p>
+                            <p class="price">S/ 1,999.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
+                        </div>
+                        <div class="product-card" data-id="7" data-name="Lenovo Legion 5" data-price="1150.00">
+                            <div class="product-img-placeholder">🎮</div>
+                            <h3>Lenovo Legion 5</h3>
+                            <p class="specs">RTX 4050 • 16 GB RAM</p>
+                            <p class="price">S/ 1,150.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
+                        </div>
+                        <div class="product-card" data-id="8" data-name="Acer Swift 3" data-price="550.00">
+                            <div class="product-img-placeholder">🦋</div>
+                            <h3>Acer Swift 3</h3>
+                            <p class="specs">Ryzen 5 • 8 GB RAM</p>
+                            <p class="price">S/ 550.00</p>
+                            <button type="button" class="btn-add">Agregar al carrito</button>
                         </div>
                     </div>
                 </section>
 
+                <!-- Carrito + checkout -->
                 <aside class="cart-checkout-sidebar">
                     <div class="cart-section">
                         <h2>Tu Carrito</h2>
@@ -75,8 +107,8 @@
                             <li class="empty-cart">El carrito está vacío</li>
                         </ul>
                         <div class="cart-totals">
-                            <div class="subtotal"><span>Subtotal:</span> <span id="subtotal-price">$0.00</span></div>
-                            <div class="total"><span>Total:</span> <span id="total-price">$0.00</span></div>
+                            <div class="subtotal"><span>Subtotal</span> <span id="subtotal-price">$0.00</span></div>
+                            <div class="total"><span>Total</span> <span id="total-price">$0.00</span></div>
                         </div>
                     </div>
 
@@ -85,15 +117,15 @@
                         <form id="checkout-form">
                             <div class="form-group">
                                 <label for="name">Nombre completo</label>
-                                <input type="text" id="name" required placeholder="Ej. Carlos Mendoza">
+                                <input type="text" id="name" name="nombre" required placeholder="Ej. Carlos Mendoza">
                             </div>
                             <div class="form-group">
                                 <label for="address">Dirección de envío</label>
-                                <input type="text" id="address" required placeholder="Av. Los Pinos 456">
+                                <input type="text" id="address" name="direccion" required placeholder="Av. Los Pinos 456">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Teléfono</label>
-                                <input type="tel" id="phone" required placeholder="999 999 999">
+                                <input type="tel" id="phone" name="telefono" required placeholder="999 999 999">
                             </div>
                             <button type="submit" class="btn-checkout">Confirmar Pedido</button>
                         </form>
@@ -104,6 +136,8 @@
     </div>
 
     <script src="app.js"></script>
-    <script src="carrito.js"></script>
+    <script src="js/carrito-datos.js"></script>
+  <script src="carrito/carrito.js"></script>
+    <script src="js/efectos.js" defer></script>
 </body>
 </html>
