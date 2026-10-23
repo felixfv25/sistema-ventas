@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | TecnoMarket</title>
+  <link rel="stylesheet" href="../css/detalle.css">
+</head>
+<body>
+  <header>
+    <h1>TecnoMarket</h1>
+    <nav>
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#productos">Productos</a>
+      <a href="#">Carrito</a>
+      <a href="contacto.html" class="activo">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contacto</h2>
+    <div class="dos-columnas">
+      <section class="caja">
+        <h3>Escríbenos</h3>
+        <form id="form-contacto">
+          <label>Nombre <input type="text" id="nombre" required></label>
+          <label>Correo <input type="email" id="correo" required></label>
+          <label>Mensaje <textarea id="mensaje" rows="4" required></textarea></label>
+          <button type="submit" class="boton">Enviar mensaje</button>
+        </form>
+        <p id="respuesta" class="respuesta"></p>
+      </section>
+
+      <section class="caja">
+        <h3>Datos de la tienda</h3>
+        <p>Dirección: Av. Principal 123, Lima</p>
+        <p>Teléfono: 999 888 777</p>
+        <p>Correo: ventas@tecnomarket.pe</p>
+        <p>Horario: lunes a sábado, 9:00 a 18:00</p>
+      </section>
+    </div>
+
+    <h2>Envíos y garantía</h2>
+    <div class="dos-columnas">
+      <section class="caja">
+        <h3>Envíos</h3>
+        <p>Enviamos a todo el Perú. En Lima llega en 1 a 2 días y en provincias en 3 a 5 días. El envío es gratis en compras desde S/ 300.</p>
+      </section>
+      <section class="caja">
+        <h3>Garantía</h3>
+        <p>Todos los equipos tienen 12 meses de garantía por fallas de fábrica. Guarda tu boleta para solicitar el servicio.</p>
+      </section>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Cómo puedo pagar?</summary><p>Con tarjeta, transferencia o Yape.</p></details>
+    <details><summary>¿Puedo cambiar un producto?</summary><p>Sí, dentro de los 7 días de la compra si está sin uso y con su caja.</p></details>
+    <details><summary>¿Cómo sé si un producto tiene stock?</summary><p>En la página de cada producto aparece su disponibilidad.</p></details>
+  </main>
+
+  <footer>TecnoMarket - SENATI 2026</footer>
+
+  <script src="../js/contacto.js"></script>
+</body>
+</html>
