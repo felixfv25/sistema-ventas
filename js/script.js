@@ -12,12 +12,13 @@ const productos = [
 
 const lista = document.getElementById("lista");
 
-productos.forEach(function (p) {
+productos.forEach(function (p, i) {
   lista.innerHTML += `
     <div class="tarjeta">
       <div class="icono">${p.icono}</div>
       <h3>${p.nombre}</h3>
       <p>S/ ${p.precio}</p>
+      <a href="pages/producto.html?id=${i + 1}">Ver detalle</a>
       <button>Agregar al carrito</button>
     </div>`;
 });
